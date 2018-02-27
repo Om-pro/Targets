@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class TargetActivity extends SingleFragmentActivity {
 
-    private static final String EXTRA_CRIME_ID = "com.example.ompro.app.crime_id";
+    private static final String EXTRA_CRIME_ID = "com.example.ompro.app.target_id";
 
 
     public static Intent newIntent(Context packageContext, UUID crimeId) {

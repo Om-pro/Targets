@@ -77,7 +77,7 @@ public class TargetListFragment extends Fragment implements TextToSpeech.OnInitL
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(ru.ompro.targets.app.R.layout.fragment_crime_list, container, false);
+        View view = inflater.inflate(ru.ompro.targets.app.R.layout.fragment_target_list, container, false);
 
         final FloatingActionButton fab = (FloatingActionButton) view.findViewById(ru.ompro.targets.app.R.id.floatingActionButton3);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -113,16 +113,6 @@ public class TargetListFragment extends Fragment implements TextToSpeech.OnInitL
         mItemTouchHelper = new ItemTouchHelper(callback);
         mItemTouchHelper.attachToRecyclerView(mCrimeRecyclerView);
         mCrimeRecyclerView.setAdapter(mAdapter);
-//        emptyView.setText("fafasf");
-
-//        if(mAdapter.getItemCount() == 0) {
-//            emptyView.setVisibility(View.VISIBLE);
-//            mCrimeRecyclerView.setVisibility(View.GONE);
-//        }
-//        else {
-//            mCrimeRecyclerView.setVisibility(View.VISIBLE);
-//            emptyView.setVisibility(View.GONE);
-//        }
 
         if (savedInstanceState != null) {
             mSubtitleVisible = savedInstanceState.getBoolean(SAVED_SUBTITLE_VISIBLE);
@@ -148,7 +138,7 @@ public class TargetListFragment extends Fragment implements TextToSpeech.OnInitL
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(ru.ompro.targets.app.R.menu.fragment_crime_list, menu);
+        inflater.inflate(ru.ompro.targets.app.R.menu.fragment_target_list, menu);
 
 //        MenuItem subtitleItem = menu.findItem(R.id.menu_item_show_subtitle);
 //        if(mSubtitleVisible) {
@@ -321,7 +311,7 @@ public class TargetListFragment extends Fragment implements TextToSpeech.OnInitL
         @Override
         public CrimeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View view = layoutInflater.inflate(ru.ompro.targets.app.R.layout.list_item_crime, parent, false);
+            View view = layoutInflater.inflate(ru.ompro.targets.app.R.layout.list_item_target, parent, false);
             return new CrimeHolder(view);
         }
 

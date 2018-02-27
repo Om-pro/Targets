@@ -57,9 +57,9 @@ public class TargetFragment extends Fragment {
     private String getCrimeReport() {
         String solvedString = null;
         if (mTarget.isSolved()) {
-            solvedString = getString(R.string.crime_report_solved);
+            solvedString = getString(R.string.target_report_solved);
         } else {
-            solvedString = getString(R.string.crime_report_unsolved);
+            solvedString = getString(R.string.target_report_unsolved);
         }
 
         String dateFormat = "EEE, MMM dd";
@@ -67,12 +67,12 @@ public class TargetFragment extends Fragment {
 
         String suspect = mTarget.getSuspect();
         if (suspect == null) {
-            suspect = getString(R.string.crime_report_no_suspect);
+            suspect = getString(R.string.target_report_no_collaboration);
         } else {
-            suspect = getString(R.string.crime_report_suspect, suspect);
+            suspect = getString(R.string.target_report_collaborated, suspect);
         }
 
-        String report = getString(R.string.crime_report, mTarget.getTitle(), dateString, solvedString, suspect);
+        String report = getString(R.string.target_report, mTarget.getTitle(), dateString, solvedString, suspect);
 
         return report;
     }
@@ -81,7 +81,7 @@ public class TargetFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
-        mTarget = TargetLab.get(getActivity()).getCrime(crimeId);
+        mTarget = TargetLab.get(getActivity()).getTarget(crimeId);
         setHasOptionsMenu(true);
     }
 
@@ -89,12 +89,12 @@ public class TargetFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        TargetLab.get(getActivity()).updateCrime(mTarget);
+        TargetLab.get(getActivity()).updateTarget(mTarget);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(ru.ompro.targets.app.R.layout.fragment_crime, container, false);
+        View v = inflater.inflate(ru.ompro.targets.app.R.layout.fragment_target, container, false);
         mTitleField = (EditText) v.findViewById(ru.ompro.targets.app.R.id.crime_title);
         mTitleField.setText(mTarget.getTitle());
         mTitleField.addTextChangedListener(new TextWatcher() {
@@ -143,7 +143,7 @@ public class TargetFragment extends Fragment {
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
                 i.putExtra(Intent.EXTRA_TEXT, getCrimeReport());
-                i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.crime_report_subject));
+                i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.target_report_subject));
                 startActivity(i);
             }
         });
@@ -170,14 +170,14 @@ public class TargetFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(ru.ompro.targets.app.R.menu.fragment_crime, menu);
+        inflater.inflate(ru.ompro.targets.app.R.menu.fragment_target, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case ru.ompro.targets.app.R.id.menu_item_delete_crime:
-                TargetLab.get(getActivity()).deleteCrime(mTarget);
+                TargetLab.get(getActivity()).deleteTarget(mTarget);
                 getActivity().finish();
                 return true;
             default:

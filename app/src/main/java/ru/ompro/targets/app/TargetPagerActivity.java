@@ -32,7 +32,7 @@ public class TargetPagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(ru.ompro.targets.app.R.layout.activity_crime_pager);
+        setContentView(ru.ompro.targets.app.R.layout.activity_target_pager);
         UUID crimeId = (UUID) getIntent().getSerializableExtra(EXTRA_CRIME_ID);
 
         mViewPager = (ViewPager) findViewById(ru.ompro.targets.app.R.id.activity_crime_pager_view_pager);

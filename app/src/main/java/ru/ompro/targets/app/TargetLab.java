@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 import ru.ompro.targets.app.database.CrimeBaseHelper;
-import ru.ompro.targets.app.database.CrimeCursorWrapper;
+import ru.ompro.targets.app.database.TargetCursorWrapper;
 import ru.ompro.targets.app.database.CrimeDbSchema.CrimeTable;
 
 /**
@@ -44,7 +44,7 @@ public class TargetLab {
     public List<Target> getmCrimes() {
         List<Target> targets = new ArrayList<>();
 
-        CrimeCursorWrapper cursor = queryCrimes(null, null);
+        TargetCursorWrapper cursor = queryCrimes(null, null);
 
         try {
             cursor.moveToFirst();
@@ -58,8 +58,8 @@ public class TargetLab {
         return targets;
     }
 
-    public Target getCrime(UUID id) {
-        CrimeCursorWrapper cursor = queryCrimes(
+    public Target getTarget(UUID id) {
+        TargetCursorWrapper cursor = queryCrimes(
                 CrimeTable.Cols.UUID + " = ?",
                 new String[]{id.toString()}
         );
@@ -75,7 +75,7 @@ public class TargetLab {
         }
     }
 
-    public void updateCrime(Target target) {
+    public void updateTarget(Target target) {
         String uuidString = target.getId().toString();
         ContentValues values = getContentValues(target);
 
@@ -92,7 +92,7 @@ public class TargetLab {
         return values;
     }
 
-    private CrimeCursorWrapper queryCrimes(String whereClause, String[] whereArgs) {
+    private TargetCursorWrapper queryCrimes(String whereClause, String[] whereArgs) {
         Cursor cursor = mDatabase.query(
                 CrimeTable.NAME,
                 null,
@@ -103,10 +103,10 @@ public class TargetLab {
                 null
         );
 
-        return new CrimeCursorWrapper(cursor);
+        return new TargetCursorWrapper(cursor);
     }
 
-    public void deleteCrime(Target target) {
+    public void deleteTarget(Target target) {
 
         mDatabase.execSQL("DELETE FROM crimes WHERE uuid = ?", new String[]{target.getId().toString()});
     }

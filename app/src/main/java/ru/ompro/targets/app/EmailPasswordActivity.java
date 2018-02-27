@@ -31,6 +31,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import ru.ompro.targets.app.google.BaseActivity;
+
 public class EmailPasswordActivity extends BaseActivity implements
         View.OnClickListener {
 
