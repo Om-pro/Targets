@@ -333,13 +333,11 @@ public class TargetListFragment extends Fragment implements TextToSpeech.OnInitL
 
         @Override
         public int getItemCount() {
-//            if(mTargets.isEmpty()) {
-//                mCrimeRecyclerView.setVisibility(View.GONE);
-//                emptyView.setVisibility(View.VISIBLE);
-//            } else {
-//                emptyView.setVisibility(View.GONE);
-//                mCrimeRecyclerView.setVisibility(View.VISIBLE);
-//            }
+            if (mTargets.isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Добавьте Вашу первую цель!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
             return mTargets.size();
         }
 
