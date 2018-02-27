@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "644395775772",
+    "project_id": "app1-735a7"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644395775772:android:68cca9878926ca14",
+        "android_client_info": {
+          "package_name": "ru.ompro.targets.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644395775772-h46uehass5r6pl8pfcvavoom9dbi92v0.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "644395775772-8o3u205b0d8km1tm2a8rd94lev6t5j4p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.ompro.targets.app",
+            "certificate_hash": "cd4304cc51c1748bf9f0c0b0658d5e05a0fa9154"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKWH6G_wxbcqWxMRJ6jYUGG4gwdowO79s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
